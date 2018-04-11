@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head >
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Lorhana ToDo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src="todo.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div ng-controller="todoController">
+    <h1 class="text-center">Lorhana ToDo</h1>
+    <div>
+      <input class="form-control" type="text" placeholder="Insira uma nova task" ng-model="input">
+      <button ng-click="add(input)" class="btn btn-info btn-block">Add task</button>
+    </div>
+    <br />
+    <ul class="list-group">
+          <li class="list-group-item" ng-repeat="todo in todos">
+            <button ng-click="remove(todo)" type="button" class="btn btn-danger btn-xs">
+                <span  class="btn glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </button>
+            <span ng-if="editing !== todo">{{ todo.task }}</span>
+            <input ng-if="editing !== null" type="text" ng-model="todo.title">
+          </li>
+    </ul>
+  </div>
+</body>
+</html>
