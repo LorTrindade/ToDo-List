@@ -14,7 +14,7 @@ app.controller('todoController', function ($scope) {
 
   function add(input) {
     if (input.length < 1) return;
-    $scope.todos.push({title: input});
+    $scope.todos.push({task: input});
   }
 
   function remove(todo) {
